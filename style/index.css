@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-light-pink: #fcf0e4;
+  --color-dark-green: #063c28;
+  --color-btn-dark-green: #063d29;
+  --color-light-bg: #f6f6f6;
+  --color-green: #3b9c3c;
+  --color-orange: #fb6c08;
+  --color-dark-color: #151515;
+  --color-light-color: #52525b;
+  --color-light-orange: #fca99b;
+  --color-light-blue: #7688db;
+  --color-dark-blue: #6c7fd8;
+  --color-dark-text: #686e7d;
+  --color-light-bg: #f8f8fb;
+  --color-dark-red: #f02757;
+  --color-light-text: #ababab;
+  --color-light-green: #93d991;
+  --color-product-bg: #f1f3f8;
+}
+
+@layer base {
+  button {
+    @apply cursor-pointer;
+  }
+}
