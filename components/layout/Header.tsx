@@ -14,7 +14,7 @@ const Header = async () => {
 
   return (
     <header className="py-5 sticky top-0 z-50 bg-white/70 backdrop-blur-md">
-      <Container className="flex items-center justify-between text-shop-light-color">
+      <Container className="flex items-center justify-between text-light-color">
         <div className="w-auto flex items-center justify-start gap-2.5 md:gap-0">
           <MobileMenu />
           <Logo />
@@ -26,7 +26,6 @@ const Header = async () => {
           <SearchBar />
           <Cart />
           <Favourites />
-
           {/* auth */}
           <ClerkLoaded>
             <SignedIn>

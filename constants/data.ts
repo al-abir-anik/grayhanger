@@ -7,10 +7,10 @@ export const headerData = [
 ];
 
 export const productType = [
-  { title: "T-shirt", value: "t-shirt" },
-  { title: "Polo", value: "polo" },
-  { title: "Shirt", value: "shirt" },
-  { title: "Others", value: "others" },
+  { title: "Single", value: "single" },
+  { title: "2 Pc Combo", value: "combo2" },
+  { title: "3 Pc Combo", value: "combo3" },
+  { title: "5 Pc Combo", value: "combo5" },
 ];
 
 export const quickLinksData = [

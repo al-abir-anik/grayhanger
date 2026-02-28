@@ -1,20 +1,19 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Urbanist } from "next/font/google";
 import "../style/index.css";
-import { ClerkProvider } from "@clerk/nextjs";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const urbanist = Urbanist({
+  variable: "--font-urbanist",
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
   title: {
-    template: "%s - BongoBazar",
-    default: "BongoBazar",
+    template: "%s - GrayHanger",
+    default: "GrayHanger",
   },
-  description: "BongoBazar online store, Your one stop shop for all your needs",
+  description: "GrayHanger online store, Your one stop shop for all your needs",
 };
 
 export default function RootLayout({
@@ -23,10 +22,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className={`${poppins.className} antialiased`}>{children}</body>
-      </html>
-    </ClerkProvider>
+    <html lang="en">
+      <body className={`${urbanist.className} antialiased`}>{children}</body>
+    </html>
   );
 }

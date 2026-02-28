@@ -17,15 +17,15 @@ const SideMenu: FC<SidemenuProps> = ({ isOpen, onClose }) => {
 
   return (
     <div
-      className={`w-full fixed inset-y-0 h-screen left-0 z-50 bg-black/50 text-white/80 shadow-xl hoverEffect ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+      className={`w-full fixed inset-y-0 h-screen left-0 z-50 bg-black/50 text-white/80 shadow-xl  ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
     >
-      <div className="min-w-72 max-w-96 h-screen p-10 flex flex-col gap-6 bg-black border-r border-r-shop-green">
+      <div className="min-w-72 max-w-96 h-screen p-10 flex flex-col gap-6 bg-black border-r border-r-green">
         {/* logo and close btn */}
         <div className="flex items-center justify-between gap-5">
           <Logo className="text-white" />
           <button
             onClick={onClose}
-            className="hover:text-shop-green hoverEffect"
+            className="hover:text-green "
           >
             <X />
           </button>
@@ -37,7 +37,7 @@ const SideMenu: FC<SidemenuProps> = ({ isOpen, onClose }) => {
             <Link
               key={item?.title}
               href={item?.href}
-              className={`hover:text-shop-green hoverEffect ${pathname === item?.href && "text-shop-green"}`}
+              className={`hover:text-green  ${pathname === item?.href && "text-green"}`}
             >
               {item?.title}
             </Link>

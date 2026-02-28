@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-t">
+    <footer className="mt-20 bg-white border-t">
       <Container>
         <FooterTop />
 
@@ -23,7 +23,7 @@ const Footer = () => {
             </p>
             <SocialMedia
               className="text-dark-color/60"
-              iconClassName="border-dark-color/60 hover:border-shop_dark_green hover:text-shop_dark_green"
+              iconClassName="border-dark-color/60 hover:border_dark_green hover:text_dark_green"
               tooltipClassName="bg-dark-color text-white"
             />
           </div>
@@ -35,7 +35,7 @@ const Footer = () => {
                 <li key={item?.title}>
                   <Link
                     href={item?.href}
-                    className="text-gray-600 hover:text-shop_dark_green text-sm font-medium hoverEffect"
+                    className="text-gray-600 hover:text_dark_green text-sm font-medium "
                   >
                     {item?.title}
                   </Link>
@@ -51,7 +51,7 @@ const Footer = () => {
                 <li key={item?.title}>
                   <Link
                     href={`/category/${item?.href}`}
-                    className="text-gray-600 hover:text-shop_dark_green text-sm font-medium hoverEffect capitalize"
+                    className="text-gray-600 hover:text_dark_green text-sm font-medium  capitalize"
                   >
                     {item?.title}
                   </Link>
@@ -74,9 +74,9 @@ const Footer = () => {
         <div className="py-6 border-t text-center text-sm text-gray-600">
           <p>
             © {new Date().getFullYear()}{" "}
-            <span className="text-dark-color font-black tracking-wider uppercase hover:text-shop_dark_green hoverEffect group font-sans">
+            <span className="text-dark-color font-black tracking-wider uppercase hover:text_dark_green  group font-sans">
               Shpopcar
-              <span className="text-shop_dark_green group-hover:text-dark-color hoverEffect">
+              <span className="text_dark_green group-hover:text-dark-color ">
                 t
               </span>
             </span>

@@ -63,8 +63,8 @@ export const contactInfo = [
     title: "Visit Our Store",
     details: contactConfig.company.address,
     subDetails: contactConfig.company.city,
-    color: "text-shop_dark_green",
-    bgColor: "bg-shop_dark_green/10",
+    color: "text_dark_green",
+    bgColor: "bg_dark_green/10",
     href: `https://maps.google.com/?q=${encodeURIComponent(`${contactConfig.company.address}, ${contactConfig.company.city}`)}`,
   },
   {
@@ -72,8 +72,8 @@ export const contactInfo = [
     title: "Call Us",
     details: contactConfig.company.phone,
     subDetails: contactConfig.businessHours.weekday,
-    color: "text-shop_light_green",
-    bgColor: "bg-shop_light_green/10",
+    color: "text_light_green",
+    bgColor: "bg_light_green/10",
     href: `tel:${contactConfig.company.phone.replace(/\D/g, "")}`,
   },
   {
@@ -81,8 +81,8 @@ export const contactInfo = [
     title: "Email Support",
     details: contactConfig.emails.support,
     subDetails: contactConfig.responseTime.standard,
-    color: "text-shop_orange",
-    bgColor: "bg-shop_orange/10",
+    color: "text_orange",
+    bgColor: "bg_orange/10",
     href: `mailto:${contactConfig.emails.support}`,
   },
   {
