@@ -30,7 +30,7 @@ const ImageView = ({ images = [] }: Props) => {
   const [active, setActive] = useState(images[0]);
 
   return (
-    <div className="w-full md:w-1/2 space-y-2 md:space-y-4">
+    <div className="w-full md:w-1/2 space-y-2">
       <AnimatePresence mode="wait">
         <motion.div
           key={active?._key}
@@ -38,7 +38,7 @@ const ImageView = ({ images = [] }: Props) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0.5 }}
           transition={{ duration: 0.1 }}
-          className="group w-full max-h-150 min-h-112.5 border border-darkColor/10 rounded-md overflow-hidden"
+          className="group w-full max-h-150 min-h-112.5 border border-darkColor/10 rounded-sm overflow-hidden"
         >
           <Image
             src={urlFor(active).url()}
@@ -56,7 +56,7 @@ const ImageView = ({ images = [] }: Props) => {
           <button
             key={image?._key}
             onClick={() => setActive(image)}
-            className={`border hover:border-darkColor/40 rounded overflow-hidden active:scale-95 ${active?._key === image?._key ? "border-darkColor/40" : ""}`}
+            className={`border hover:border-darkColor/40 rounded-xs overflow-hidden active:scale-95 ${active?._key === image?._key ? "border-darkColor/40" : ""}`}
           >
             <Image
               src={urlFor(image).url()}

@@ -1,6 +1,7 @@
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "react-hot-toast";
 
 export default function PublicLayout({
   children,
@@ -14,6 +15,15 @@ export default function PublicLayout({
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              style: {
+                background: "#000",
+                color: "#fff",
+              },
+            }}
+          />
         </div>
       </ClerkProvider>
     </>

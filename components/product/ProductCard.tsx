@@ -5,11 +5,11 @@ import { urlFor } from "@/sanity/lib/image";
 import { FlameIcon } from "lucide-react";
 import PriceView from "../ui/PriceView";
 import WishlistBtn from "../buttons/WishlistBtn";
-import AddToCartModalButton from "../buttons/AddToCartModalButton";
+import QuickView from "../QuickView";
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
-    <div className="group rounded overflow-hidden">
+    <div className="group rounded-xs overflow-hidden">
       {/* image */}
       <div className="relative bg-linear-to-r from-zinc-200 via-zinc-300 to-zinc-200 overflow-hidden">
         <Link href={`/product/${product?.slug?.current}`}>
@@ -42,18 +42,27 @@ const ProductCard = ({ product }: { product: Product }) => {
         <WishlistBtn product={product} />
       </div>
 
-      <div className="p-3 flex flex-col gap-1.5 bg-zinc-50 border border-t-0 rounded-lg rounded-tl-none rounded-tr-none">
+      <div className="p-3 flex flex-col gap-1.5 bg-zinc-50 border border-t-0">
         <Link
           href={`/product/${product?.slug?.current}`}
-          className="font-medium line-clamp-2"
+          className="text-base font-semibold line-clamp-1"
         >
           {product?.name}
         </Link>
+        <p className="text-sm capitalize text-darkText">{product?.color}</p>
         <PriceView
           price={product?.price}
           regularPrice={product?.regularPrice}
+          className="text-lg"
         />
-        <AddToCartModalButton product={product} />
+
+        {product ? (
+          <QuickView product={product} />
+        ) : (
+          <button className="w-full h-10 font-semibold text-darkColor hover:text-white border border-darkColor/30 bg-transparent hover:bg-darkColor tracking-wide rounded transition-colors">
+            Add to Cart
+          </button>
+        )}
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import Container from "@/components/layout/Container";
 import ImageView from "@/components/ui/ImageView";
 import PriceView from "@/components/ui/PriceView";
 import SizeStock from "@/components/ui/SizeStock";
-import AddToCartButton from "@/components/buttons/AddToCartButton";
+import AddToCartButton from "@/components/AddToCart";
 import { Heart } from "lucide-react";
 
 const ProductDetailsPage = async ({
@@ -15,7 +15,7 @@ const ProductDetailsPage = async ({
   const { slug } = await params;
   const product = await getProductBySlug(slug);
 
-  console.log(product);
+  // console.log(product);
 
   if (!product) {
     return notFound();
@@ -41,7 +41,7 @@ const ProductDetailsPage = async ({
             </span>
           </p>
           {/* stock */}
-          <SizeStock sizeStock={product?.sizeStock} />
+          {/* <SizeStock sizeStock={product?.sizeStock} /> */}
 
           <div className="flex items-center gap-2.5 lg:gap-5">
             <AddToCartButton product={product} />
