@@ -31,6 +31,12 @@ export const categoryType = defineType({
       title: "Category Image",
       type: "image",
     }),
+    defineField({
+      name: "isActive",
+      title: "Active Category",
+      type: "boolean",
+      initialValue: true,
+    }),
   ],
   preview: {
     select: {

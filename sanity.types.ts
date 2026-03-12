@@ -13,6 +13,45 @@
  */
 
 // Source: schema.json
+export type Order = {
+  _id: string;
+  _type: "order";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  orderId?: string;
+  customerName?: string;
+  phoneNumber?: string;
+  address?: string;
+  deliveryArea?: string;
+  orderNote?: string;
+  items?: Array<{
+    productId?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "product";
+    };
+    name?: string;
+    size?: string;
+    quantity?: number;
+    price?: number;
+    _type: "orderItem";
+    _key: string;
+  }>;
+  subtotal?: number;
+  shippingCharge?: number;
+  total?: number;
+  status?:
+    | "pending"
+    | "processing"
+    | "shipped"
+    | "delivered"
+    | "cancelled"
+    | "returned";
+  createdAt?: string;
+};
+
 export type Product = {
   _id: string;
   _type: "product";
@@ -109,6 +148,7 @@ export type Category = {
     crop?: SanityImageCrop;
     _type: "image";
   };
+  isActive?: boolean;
 };
 
 export type Slug = {
@@ -214,6 +254,7 @@ export type Geopoint = {
 };
 
 export type AllSanitySchemaTypes =
+  | Order
   | Product
   | SanityImageCrop
   | SanityImageHotspot
@@ -292,10 +333,38 @@ export type PRODUCT_BY_SLUG_QUERY_RESULT = {
   metaDescription?: string;
 } | null;
 
+// Source: sanity/helpers/queries.ts
+// Variable: CATEGORIES_QUERY
+// Query: *[_type=="category" && isActive == true] | order(name asc)
+export type CATEGORIES_QUERY_RESULT = Array<{
+  _id: string;
+  _type: "category";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  slug?: Slug;
+  description?: string;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  isActive: true;
+}>;
+
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == 'product' && slug.current == $slug][0]": PRODUCT_BY_SLUG_QUERY_RESULT;
+    '*[_type=="category" && isActive == true] | order(name asc)': CATEGORIES_QUERY_RESULT;
   }
 }

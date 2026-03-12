@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Product } from "@/sanity.types";
-import { SizeItem } from "./product/ProductAction";
+import { SizeItem } from "../product/ProductAction";
 import useCartStore from "@/store/cartStore";
 import toast from "react-hot-toast";
 

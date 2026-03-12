@@ -1,6 +1,6 @@
 "use client";
 
-import { Search, X } from "lucide-react";
+import { Search, SearchIcon, X } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import PriceView from "./ui/PriceView";
@@ -44,7 +44,10 @@ const SearchBar = () => {
 
   return (
     <>
-      <button onClick={() => setIsOpen(true)}>search</button>
+      <button onClick={() => setIsOpen(true)}>
+        <SearchIcon className="w-5 h-5" />
+      </button>
+
       {isOpen &&
         createPortal(
           <div className="fixed inset-0 z-100">
@@ -53,11 +56,11 @@ const SearchBar = () => {
               onClick={() => setIsOpen(false)}
             />
             {/* Modal */}
-            <div className="w-5xl min-h-1/2 maxh-4/5 mx-auto mt-20 relative bg-white">
+            <div className="w-5xl min-h-1/2 mx-auto mt-20 relative bg-white">
               {/* form */}
-              <div className="px-8 pt-8 pb-6 border-b">
-                <div className="pl-3 mb-2 flex items-center justify-between">
-                  <h2 className="text-xs font-semibold text-darkColor/90 uppercase tracking-widest">
+              <div className="px-8 py-6 border-b">
+                <div className="pl-3 mb-1 flex items-center justify-between">
+                  <h2 className="pb-1 text-xs font-semibold text-darkColor/90 uppercase tracking-widest">
                     search
                   </h2>
                   <X
@@ -76,18 +79,19 @@ const SearchBar = () => {
                     className="w-full pt-3 pb-2.5 pr-12 pl-12 flex-1 text-sm font-medium tracking-wide focus:outline-none"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
+                    autoFocus
                   />
                   {search && (
                     <X
                       onClick={() => setSearch("")}
-                      className="w-6 h-6 p-1 absolute top-2.5 right-4 rounded-md hover:bg-darkColor/10 cursor-pointer"
+                      className="w-6 h-6 p-1 absolute top-2 right-4 rounded-md hover:bg-darkColor/10 cursor-pointer"
                     />
                   )}
                 </form>
               </div>
 
               {/* search result */}
-              <div className="w-full h-auto px-8 py-2 overflow-y-scroll ">
+              <div className="w-full h-auto px-8 pb-2 overflow-y-scroll ">
                 {loading ? (
                   Array.from({ length: 5 }).map((_, index) => (
                     <SearchSkeleton key={index} />

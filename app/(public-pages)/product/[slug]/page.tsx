@@ -4,7 +4,7 @@ import Container from "@/components/layout/Container";
 import ImageView from "@/components/ui/ImageView";
 import PriceView from "@/components/ui/PriceView";
 import SizeStock from "@/components/ui/SizeStock";
-import AddToCartButton from "@/components/AddToCart";
+import AddToCartButton from "@/components/cart/AddToCart";
 import { Heart } from "lucide-react";
 
 const ProductDetailsPage = async ({

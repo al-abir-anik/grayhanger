@@ -7,7 +7,7 @@ import ImageView from "./ui/ImageView";
 import PriceView from "./ui/PriceView";
 import { Heart, X } from "lucide-react";
 import Link from "next/link";
-import AddToCart from "./AddToCart";
+import AddToCart from "./cart/AddToCart";
 
 interface Props {
   product?: Product;

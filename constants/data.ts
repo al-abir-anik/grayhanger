@@ -13,6 +13,12 @@ export const productType = [
   { title: "5 Pc Combo", value: "combo5" },
 ];
 
+export const deliveryAreas = [
+  { label: "Inside Dhaka", value: "inside_dhaka", fee: 60 },
+  { label: "Inside Gazipur", value: "inside_gazipur", fee: 60 },
+  { label: "Outside Dhaka & Gazipur", value: "outside", fee: 100 },
+];
+
 export const quickLinksData = [
   { title: "About us", href: "/about" },
   { title: "Contact us", href: "/contact" },

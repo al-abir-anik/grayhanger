@@ -13,7 +13,7 @@ export default function PublicLayout({
       <ClerkProvider>
         <div className="flex flex-col min-h-screen">
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="mt-5 flex-1">{children}</main>
           <Footer />
           <Toaster
             position="top-right"

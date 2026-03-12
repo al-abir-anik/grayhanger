@@ -62,20 +62,31 @@ export const productType = defineType({
       to: [{ type: "category" }],
       validation: (Rule) => Rule.required(),
     }),
+    // defineField({
+    //   name: "variant",
+    //   title: "Variant",
+    //   type: "string",
+    //   options: {
+    //     list: [
+    //       { title: "Solid", value: "solid" },
+    //       { title: "Printed", value: "printed" },
+    //       { title: "Sports", value: "sports" },
+    //       { title: "Others", value: "others" },
+    //     ],
+    //     layout: "dropdown",
+    //   },
+    // }),
+
     defineField({
-      name: "variant",
-      title: "Variant",
-      type: "string",
-      options: {
-        list: [
-          { title: "Solid", value: "solid" },
-          { title: "Printed", value: "printed" },
-          { title: "Sports", value: "sports" },
-          { title: "Others", value: "others" },
-        ],
-        layout: "dropdown",
-      },
+      name: "subCategory",
+      title: "SubCategory",
+      type: "reference",
+      to: [{ type: "subCategory" }],
     }),
+
+
+
+
     defineField({
       name: "color",
       title: "Color",

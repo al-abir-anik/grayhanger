@@ -3,7 +3,7 @@
 import { Product } from "@/sanity.types";
 import { useState } from "react";
 import SizeStock from "../ui/SizeStock";
-import AddToCartButton from "../AddToCart";
+import AddToCartButton from "../cart/AddToCart";
 
 export type SizeItem = {
   size?: string;

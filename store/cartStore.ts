@@ -11,7 +11,7 @@ interface CartState {
   items: CartItem[];
   addItem: (product: Product, size: string) => void;
   removeItem: (productId: string) => void;
-  deleteCartProduct: (productId: string) => void;
+  deleteCartProduct: (productId: string, size?: string) => void;
   resetCart: () => void;
   getItemCount: (productId: string, size?: string) => number;
   getSubtotalPrice: () => number;
@@ -56,24 +56,26 @@ const useCartStore = create<CartState>()(
           }, [] as CartItem[]),
         })),
       // delete product from cart
-      deleteCartProduct: (productId) =>
+      deleteCartProduct: (productId, size) =>
         set((state) => ({
           items: state.items.filter(
-            ({ product }) => product?._id !== productId,
+            (item) => !(item.product._id === productId && item.size === size),
           ),
         })),
       // reset user cart
       resetCart: () => set({ items: [] }),
       // get Item count
-      getItemCount: (productId , size) => {
-        const item = get().items.find((item) => item.product._id === productId && item.size === size);
+      getItemCount: (productId, size) => {
+        const item = get().items.find(
+          (item) => item.product._id === productId && item.size === size,
+        );
         return item ? item.quantity : 0;
       },
       // get subtotal price of product
       getSubtotalPrice: () => {
         return get().items.reduce((total, item) => {
           const price = item.product.price ?? 0;
-          const regularPrice = ((item.product.regularPrice ?? 0) * price) / 100;
+          // const regularPrice = ((item.product.regularPrice ?? 0) * price) / 100;
           return total + price * item.quantity;
         }, 0);
       },
